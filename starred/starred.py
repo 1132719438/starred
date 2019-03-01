@@ -224,7 +224,7 @@ def starred(username, token, sort, repository, message, output,
     for language in info_dict:
         count = len(info_dict[language])
         info_dict[language].insert(0, ['', 'Name', 'Description', 'Owner', 'Stars'])
-        click.echo('## {} ({}) \n'.format(language.replace('#', '# #'), count), file=output_file)
+        click.echo('## {} ({}) \n'.format(language, count), file=output_file)
         if type == 'table':
             table = GithubFlavoredMarkdownTable(info_dict[language])
             click.echo(table.table, file=output_file)
