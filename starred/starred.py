@@ -129,6 +129,7 @@ def starred(username, token, sort, repository, message, output,
         click.secho('Error: talk to Github failed: {}'.format(e), fg='red', file=sys.stderr)
         return
     today = str(datetime.date.today())
+    month = datetime.date.today().strftime('%Y%m')
 
     repo_dict = {}
     new_dict = {}
@@ -244,18 +245,18 @@ def starred(username, token, sort, repository, message, output,
         try:
             rep = gh.repository(username, repository)
             try:
-                rep.file_contents('/Archives/README-{}.md'.format(today))
-                click.secho('Error: already commit [/Archives/README-{}.md]'.format(today),
+                rep.file_contents('/Archives/{}/README-{}.md'.format(month, today))
+                click.secho('Error: already commit [/Archives/{}/README-{}.md]'.format(month, today),
                             fg='red', file=sys.stderr)
             except NotFoundError:
                 readme = rep.readme()
                 readme.update(message, repo_file.getvalue())
-                rep.create_file('Archives/README-{}.md'.format(today),
+                rep.create_file('Archives/{}/README-{}.md'.format(month, today),
                                 'Archive starred {}'.format(today), repo_file.getvalue())
         except NotFoundError:
             rep = gh.create_repository(repository, 'A curated list of my GitHub stars!')
             rep.create_file('README.md', 'Add starred {}'.format(today), repo_file.getvalue())
-            rep.create_file('Archives/README-{}.md'.format(today),
+            rep.create_file('Archives/{}/README-{}.md'.format(month, today),
                             'Archive starred {}'.format(today), repo_file.getvalue())
         if launch:
             click.launch(rep.html_url)
