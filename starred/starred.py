@@ -71,7 +71,7 @@ def title2url(title):
 
 
 @click.command()
-@click.option('--username', envvar='USER', help='GitHub username', required=True)
+@click.option('--username', help='GitHub username', required=True)
 @click.option('--token', envvar='GITHUB_TOKEN', help='GitHub token')
 @click.option('--sort', type=click.Choice(['stars', 'date', 'name']), default='date',
               help='sort by language with stars, date or name')
@@ -246,8 +246,8 @@ def starred(username, token, sort, repository, message, output,
             rep = gh.repository(username, repository)
             try:
                 rep.file_contents('/Archives/{}/README-{}.md'.format(month, today))
-                click.secho('Error: already commit [/Archives/{}/README-{}.md]'.format(month, today),
-                            fg='red', file=sys.stderr)
+                click.secho('Error: already commit [/Archives/{}/README-{}.md]'.format(
+                            month, today), fg='red', file=sys.stderr)
             except NotFoundError:
                 readme = rep.readme()
                 readme.update(message, repo_file.getvalue())

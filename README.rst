@@ -90,18 +90,18 @@ Usage
       example:     starred --username 1132719438 --output README.md
 
     Options:
-      --username TEXT    GitHub username  [required]
-      --token TEXT       GitHub token
-      --sort             sort by language with stars, date or name
-      --repository TEXT  repository name
-      --message TEXT     commit message
-      --output TEXT      output file name with path(print to stdout if not set)
-      --http-proxy TEXT  http proxy (i.e. http://127.0.0.1:1080 or socks5://127.0.0.1:1080)
-      --https-proxy TEXT https proxy (same as http proxy if not set)
-      --launch           launch to Github after update repository
-      --type             output repository information in table or list
-      --version          Show the version and exit.
-      --help             Show this message and exit.
+      --username TEXT           GitHub username  [required]
+      --token TEXT              GitHub token
+      --sort [stars|date|name]  sort by language with stars, date or name
+      --repository TEXT         repository name
+      --message TEXT            commit message
+      --output TEXT             output file name with path(print to stdout if not
+                                set)
+      --http-proxy TEXT         http proxy (i.e. http://127.0.0.1:1080 or
+                                socks5://127.0.0.1:1080)
+      --https-proxy TEXT        https proxy (same as http proxy if not set)
+      --launch                  launch to Github after update repository
+      --type [table|list]       output repository information in table or list
 
 Demo
 ----
