@@ -214,7 +214,7 @@ def starred(username, token, sort, repository, message, output,
     for language in repo_dict:
         info_dict[language] = [[index + 1,  # index
                                 '[{}]({})'.format(repo[0], repo[1]),  # name with url
-                                repo[2],  # description
+                                repo[2].replace('|', '&#124;'),  # description
                                 repo[3],  # owner
                                 repo[4]]  # stars
                                for index, repo in enumerate(repo_dict[language])]

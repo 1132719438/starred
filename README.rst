@@ -17,7 +17,7 @@ starred requires Python version 3.x
 .. code:: bash
 
     $ git clone https://github.com/1132719438/starred
-    $ pip3 install ./starred
+    $ pip install ./starred
     $ starred --username 1132719438 --output README.md
 
 
@@ -50,7 +50,7 @@ Highlight
 
 #. Automatically create a repository for your stars, and update this
    repository when your stars changed, old stars will be archived.
-   Your can install `starred`, use scheduled tasks to automatically
+   You can install `starred`, use scheduled tasks to automatically
    update your stars repository.
 
    - Synology NAS: use `Task Scheduler` to run following script
